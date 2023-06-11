@@ -1,0 +1,128 @@
+<!-- <script>
+	import Machine from './Machine.svelte'
+	import MilkLevel from './MilkLevel.svelte'
+	import Options from './Options.svelte'
+
+	let milkLevel, flavour
+
+	const makeCoffee = () => {
+		console.log({milkLevel, flavour})
+	}
+</script> -->
+
+<!DOCTYPE html>
+<head>
+	<title>Braun Aesthetics</title>
+
+	<link rel="stylesheet" type="text/css" href="./styles/modern-css-reset.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/base.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/utilities.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/app.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/coffee.css" />
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+	<section id="coffee">
+		<div class="corner"><span>coffee</span></div>
+
+		<header>
+			<h2>Good morning</h2>
+			<p>Good design<br /> is unobtrusive</p>
+		</header>
+
+		<article x-data="{ milkLevel: 50, flavour: '', lidOpen: false }">
+			<!-- machine -->
+			<div class="container">
+				<div class="machine">
+
+					<!-- lid -->
+					<div class="lid" x-effect="$el.classList.toggle('open', lidOpen)">
+						<div class="front">
+							<div class="exhaust">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+						<div class="back">
+							<div class="exhaust">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+						<div class="left"></div>
+						<div class="right"></div>
+						<div class="top"></div>
+						<div class="bottom"></div>
+					</div>
+
+					<!-- maker -->
+					<div class="maker" x-effect="$el.classList.toggle('open', lidOpen)">
+						<div class="back"></div>
+						<div class="left"></div>
+						<div class="right"></div>
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<div class="dispenser">
+							<div class="outer"></div>
+							<div class="inner"></div>
+						</div>
+						<div class="cup"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- <MilkLevel bind:selectedMilkLevel={milkLevel} /> -->
+
+			<!-- MilkLevel -->
+			<div class="milk-indicator">
+				<label for="milk-level">milk</label>
+				<div class="level-container">
+					<div :style="{transform: `scaleY(${milkLevel / 100})`}" class="level"></div>
+				</div>
+				<input 
+					type="range" 
+					min="0" 
+					max="100" 
+					step="10" 
+					name="milk-level" 
+					id="milk-level" 
+					orient="vertical" 
+					x-model="milkLevel" 
+				/>
+			</div>
+
+			<!-- Options -->
+			<form 
+				id="order-form" 
+				x-data="{ options: ['espresso', 'capuccino', 'latte', 'black'] }"
+			>
+		    <template x-for="option in options">
+					<div class="option">
+						<label :for="option" x-text="option"></label>
+						<input 
+							type="radio" 
+							x-model="flavour"
+							:value="option"
+							:id="option"
+							form="order-form"
+						/>
+					</div>
+		    </template>
+				<!-- <button type="submit">Submit</button> -->
+				<button type="button" class="lid-toggler" @click="lidOpen = !lidOpen">Lid</button>
+			</form>
+		</article>
+	</section>
+</body>
+</html>

@@ -1,0 +1,27 @@
+html {
+	--clr-grey-1: #2a2b2e;
+	--clr-grey-2: #38393b;
+	--clr-grey-3: #55575b;
+	--clr-grey-4: #797b7d;
+	--clr-grey-5: #47484d;
+	--clr-grey-6: #686c6f;
+	--clr-grey-7: #76797e;
+	--clr-grey-8: #d4d5d6;
+	--clr-orange: #f45027;
+	--clr-steel: #c7c6c4;
+	--clr-lightblue-1: #99a0a8;
+	--clr-lightblue-2: #8c949c;
+	--clr-lightblue-3: #c7c8ca;
+	--clr-lightblue-4: #f4f6fa;
+	--clr-shadow: #222222;
+}
+
+body {
+	font-family: var(--font-mono), Lucida Fax, Calibri;
+}
+
+section {
+	position: relative;
+	padding: 4rem 6vw;
+	min-height: 100vh;
+}
